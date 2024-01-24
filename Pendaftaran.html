@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran SMPN 1 Bangun Rejo</title>
+  
+
+    <!-- internal css -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+      }
+
+      .form-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+
+      .form-group select {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+
+      .form-group button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Formulir Pendaftaran SMPN 1 Bangun Rejo</h2>
+
+      <!-- Formulir Pendaftaran -->
+      <form id="form-pendaftaran">
+        <div class="form-group">
+          <label for="nama">Nama Lengkap:</label>
+          <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required />
+        </div>
+
+        <div class="form-group">
+          <label for="alamat">Alamat:</label>
+          <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat" required />
+        </div>
+
+        <div class="form-group">
+          <label for="kelas">No. Handphone:</label>
+          <input type="text" id="No. Handphone" name="No. Handphone" placeholder="Masukkan No Handphone" required />
+        </div>
+
+        <div class="form-group">
+          <label for="jenjang">Jenjang Pendidikan Terakhir:</label>
+          <select id="jenjang" name="jenjang" required>
+            <option value="" disabled selected>Pilih Jenjang Pendidikan Terakhir</option>
+            <option value="smp">SD</option>
+            <option value="sma">MI</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="kelas">Kelas:</label>
+          <input type="text" id="kelas" name="kelas" placeholder="Masukkan kelas" required />
+        </div>
+
+        <div class="form-group">
+          <button type="button" onclick="submitForm()"><a href="index.html">Daftar</a></button>
+          <!-- <button><a href="index.html">Daftar</a></button> -->
+        </div>
+      </form>
+    </div>
+
+    <!-- internal js -->
+    <script>
+      function submitForm() {
+        // Implementasikan logika pengiriman data atau validasi formulir di sini
+        alert("Formulir berhasil diajukan!");
+        document.getElementById("form-pendaftaran").reset();
+      }
+    </script>
+  </body>
+</html>
