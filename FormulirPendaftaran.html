@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran SMPN 1 Bangun Rejo</title>
+  
+
+    <!-- internal css -->
+    <style>
+      .area_component {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+      }
+      .area_label {
+        width: 15%;
+      }
+      .area_input {
+        width: 85%;
+      }
+      .txt_component {
+        width: 30%;
+      }
+      .btn_component {
+        outline: 0;
+        border-radius: 25px;
+        border: 1px solid #333333;
+        height: 40px;
+        padding: 10px 30px;
+        cursor: pointer;
+        background: #f3f3f3;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .frame_table {
+        border: 1px solid #333333;
+        height: 30px;
+        padding: 10px;
+      }
+
+      .frame_header {
+        background: #f3f3f3;
+        height: 30px;
+        padding: 10px;
+      }
+
+      .remove_cell {
+        background-color: #ffbbbb;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+        <h2>Formulir Pendaftaran SMPN 1 Bangun Rejo</h2>
+  
+    <!-- area component -->
+    <section class="area_component">
+      <!-- area label -->
+      <section class="area_label">
+        <label for="txt_nik">NIK</label>
+      </section>
+
+      <!-- area input -->
+      <section class="area_input">
+        <input
+          type="text"
+          name=""
+          id="txt_nik"
+          placeholder="Isi NIK"
+          class="txt_component"
+        />
+      </section>
+    </section>
+
+    <!-- area component -->
+    <section class="area_component">
+      <!-- area label -->
+      <section class="area_label">
+        <label for="txt_nama">Nama Siswa</label>
+      </section>
+
+      <!-- area input -->
+      <section class="area_input">
+        <input
+          type="text"
+          name=""
+          id="txt_nama"
+          placeholder="Isi Nama Siswa"
+          class="txt_component"
+        />
+      </section>
+    </section>
+
+    <!-- area component -->
+    <section class="area_component">
+        <!-- area label -->
+        <section class="area_label">
+          <label for="txt_alamat">Alamat Siswa</label>
+        </section>
+  
+        <!-- area input -->
+        <section class="area_input">
+          <input
+            type="text"
+            name=""
+            id="txt_alamat"
+            placeholder="Isi Alamat Siswa"
+            class="txt_component"
+          />
+        </section>
+      </section>
+    
+        <!-- area component -->
+        <section class="area_component">
+            <!-- area label -->
+            <section class="area_label">
+              <label for="txt_telepon">Telepon Siswa</label>
+            </section>
+      
+            <!-- area input -->
+            <section class="area_input">
+              <input
+                type="text"
+                name=""
+                id="txt_telepon"
+                placeholder="Isi Telepon Siswa"
+                class="txt_component"
+              />
+            </section>
+          </section>
+
+    <!-- area component -->
+    <section class="area_component">
+        <!-- area label -->
+        <section class="area_label">
+          <label for="txt_jenjang">Jenjang Pendidikan Terakhir</label>
+        </section>
+  
+        <!-- area input -->
+        <section class="area_input">
+          <select id="txt_jenjang" class="txt_component">
+            <option value="Jenjang Pendidikan Terakhir">Jenjang Pendidikan Terakhir</option>
+            <option value="SD">SD</option>
+            <option value="MI">MI</option>
+          </select>
+        </section>
+      </section>
+
+    <!-- area component -->
+    <section class="area_component">
+      <!-- area tombol -->
+      <button id="btn_tambah" class="btn_component">Tambah Data</button>
+    </section>
+
+    <!-- area tabel -->
+    <table id="tbl_data">
+      <!-- baris tabel -->
+      <tr>
+        <!-- kolom tabel (judul tabel) -->
+        <th class="frame_table frame_header" style="width: 10%">Aksi</th>
+        <th class="frame_table frame_header" style="width: 5%">No.</th>
+        <th class="frame_table frame_header" style="width: 15%">NIK</th>
+        <th class="frame_table frame_header" style="width: 25%">Nama Siswa</th>
+        <th class="frame_table frame_header" style="width: 25%">Alamat Siswa</th>
+        <th class="frame_table frame_header" style="width: 20%">Telepon Siswa</th>
+        <th class="frame_table frame_header" style="width: 25%">Jenjang Pendidikan Terakhir</th>
+      </tr>
+    </table>
+
+    <!-- internal js -->
+    <script>
+      // inisialiasi variabel komponen
+      let txt_nik = document.querySelector("#txt_nik");
+      let txt_nama = document.querySelector("#txt_nama");
+      let txt_alamat = document.querySelector("#txt_alamat");
+      let txt_telepon = document.querySelector("#txt_telepon");
+      let txt_jenjang = document.querySelector("#txt_jenjang");
+      let btn_tambah = document.querySelector("#btn_tambah");
+      let tbl_data = document.querySelector("#tbl_data");
+
+      // inisialisasi variabel untuk menampung array
+      let data = [];
+
+      // event pada saat "btn_tambah" di klik
+      btn_tambah.addEventListener("click", () => {
+        // jika salah satu data input belum diisi
+        if (txt_nik.value == "" || txt_nama.value == "" || txt_alamat.value == "" || txt_telepon.value == "" || txt_jenjang.value == "") {
+          // tampilkan pesan
+          alert("Lengkapi Seluruh Data !");
+        }
+        // jika seluruh data input sudah diisi
+        else {
+          // isi array dari nilai "txt_nik", "txt_nama", "txt_telepon", "txt_jenjang"
+          data.push([txt_nik.value, txt_nama.value, txt_alamat.value, txt_telepon.value, txt_jenjang.value]);
+
+          // panggil fungsi "viewData"
+          viewData();
+        }
+      });
+
+      // buat fungsi "clearComponent" untuk menghapus isi pada komponen input
+      const clearComponent = () => {
+        txt_nik.value = "";
+        txt_nama.value = "";
+        txt_alamat.value == "";
+        txt_telepon.value = "";
+        txt_jenjang.value = "";
+        
+      }
+      // buat fungsi "viewData" untuk menampilkan data array ke dalam tabel
+      const viewData = () => {
+        // inisialisasi variabel untuk baris tabel. diisi dengan nilai 0
+        let baris_tabel = 0;
+        // inisialisasi variabel untuk baris dan judul tabel
+        let content_tabel = `<tr>
+        <th class="frame_table" style="width: 10%">Aksi</th>
+        <th class="frame_table" style="width: 5%">No.</th>
+        <th class="frame_table" style="width: 15%">NIK</th>
+        <th class="frame_table" style="width: 25%">Nama Siwa</th>
+        <th class="frame_table" style="width: 25%">Alamat Siwa</th>
+        <th class="frame_table" style="width: 20%">Telepon Siswa</th>
+        <th class="frame_table" style="width: 25%">Jenjang Pendidikan Terakhir</th>
+        </tr>`;
+
+        // lakukan perulangan "forEach" > (looping untuk array)
+        // isi data > data yang akan ditampilkan ke tabel
+        // looping data > jumlah data (array) yang akan ditampilkan ke tabel, dimana looping dimulai dari 0
+        data.forEach((isi_data, looping_data) => {
+          // buat baris isi
+          content_tabel += "<tr>";
+
+          // buat kolom untuk Hapus Data
+          content_tabel += `<td class="frame_table remove_cell" style="text-align: center" onclick="removeData(${looping_data})">Hapus Data</td>`;
+          // buat kolom untuk nomor
+          content_tabel += `<td class="frame_table" style="text-align: center">${looping_data+1}</td>`;
+          // buat kolom untuk data nik
+          content_tabel += `<td class="frame_table" style="text-align: center">${isi_data[0]}</td>`;
+          // buat kolom untuk data nama
+          content_tabel += `<td class="frame_table">${isi_data[1]}</td>`;
+          //   buat kolom untuk alamat siswa
+          content_tabel += `<td class="frame_table">${isi_data[2]}</td>`;
+          // buat kolom untuk data telepon
+          content_tabel += `<td class="frame_table" style="text-align: center">${isi_data[3]}</td>`;
+         // buat kolom untuk data  Jenjang Pendidikan Terakhir
+          content_tabel += `<td class="frame_table">${isi_data[4]}</td>`;
+
+          // tutup baris isi
+          content_tabel += "</tr>";
+
+          // tambah baris baru (baris_tabel ditambah 1)
+          baris_tabel++;
+        });
+
+        // tampilkan "content_tabel" ke dalam "tbl_data"
+        tbl_data.innerHTML = content_tabel;
+
+        // panggil fungsi "clearComponent"
+        clearComponent();
+      };
+
+      // buat fungsi "removeData" untuk menghapus array berdasarkan index yang dipilih
+      const removeData = (index) => {
+        // jika tombol "Ok" di klik
+        if (
+          confirm(
+            `Pendataan Dosen : ${data[index][1]} (index ke-${index}) Ingin Dihapus ?`
+          ) == true
+        ) {
+          // hapus array berdasarkan index yang dipilih
+          data.splice(index, 1);
+
+          // panggil fungsi "viewData"
+          viewData();
+        }
+      };
+
+    //   keyboard event
+      const keyNumber = (event) => {
+        if (event.key >= "0" && event.key <= "9") {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      const keyText = (event) => {
+        if (
+          (event.key >= "a" && event.key <= "z") ||
+          (event.key >= "A" && event.key <= "Z")
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      txt_nik.addEventListener(
+        "keypress",
+        (event) => (event.returnValue = keyNumber(event))
+      );
+      txt_telepon.addEventListener(
+        "keypress",
+        (event) => (event.returnValue = keyNumber(event))
+      );
+      txt_nama.addEventListener(
+        "keypress",
+        (event) => (event.returnValue = keyText(event))
+      );
+      txt_alamat.addEventListener(
+        "keypress",
+        (event) => (event.returnValue = keyText(event))
+    );
+    </script>
+  </body>
+</html>
